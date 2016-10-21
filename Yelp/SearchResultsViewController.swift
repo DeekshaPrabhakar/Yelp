@@ -8,11 +8,14 @@
 
 import UIKit
 
-class SearchResultsViewController: UIViewController {
+class SearchResultsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var searchBar: UISearchBar!
     var businesses: [Business]!
     var isMapView = false
+    let data = ["Restaurants", "Breakfast & Brunch", "Coffee & Tea", "Order Pickup or Delivery",
+                "Reservations", "... More Categories"]
+    let resultCellIdentifier = "ResultsCell"
     
     @IBOutlet weak var resultsMapView: UIView!
     
@@ -30,7 +33,7 @@ class SearchResultsViewController: UIViewController {
             navigationItem.rightBarButtonItem?.title = "List"
             UIView.transition(from: resultsListView, to: resultsMapView, duration: 1, options: UIViewAnimationOptions.transitionFlipFromLeft, completion: nil)
         }
-         isMapView = !isMapView
+        isMapView = !isMapView
     }
     
     override func viewDidLoad() {
@@ -40,6 +43,10 @@ class SearchResultsViewController: UIViewController {
         searchBar.delegate = self
         searchBar.sizeToFit()
         navigationItem.titleView = searchBar
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.rowHeight = UITableViewAutomaticDimension
         
         isMapView = false
         
@@ -70,6 +77,16 @@ class SearchResultsViewController: UIViewController {
          */
     }
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: resultCellIdentifier, for: indexPath) as! ResultsCell
+        cell.textLabel?.text = data[indexPath.row]
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return data.count
+    }
+    
     
     
     override func didReceiveMemoryWarning() {
@@ -78,7 +95,7 @@ class SearchResultsViewController: UIViewController {
     }
     
     
-    /*
+    
      // MARK: - Navigation
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -86,7 +103,7 @@ class SearchResultsViewController: UIViewController {
      // Get the new view controller using segue.destinationViewController.
      // Pass the selected object to the new view controller.
      }
-     */
+     
     
 }
 

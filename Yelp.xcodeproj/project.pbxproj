@@ -16,10 +16,8 @@
 		CB8AB0641DB73B7E000EBF16 /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8AB0631DB73B7E000EBF16 /* Business.swift */; };
 		CBB8EC031DB97B1000A35392 /* ResultsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB8EC021DB97B1000A35392 /* ResultsCell.swift */; };
 		CBB8EC051DB97C8D00A35392 /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB8EC041DB97C8D00A35392 /* SearchResultsViewController.swift */; };
-		CBB8EC071DB97E2200A35392 /* NearbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB8EC061DB97E2200A35392 /* NearbyViewController.swift */; };
 		CBB8EC0A1DB9804E00A35392 /* FiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB8EC091DB9804E00A35392 /* FiltersViewController.swift */; };
 		CBB8EC0D1DB9835700A35392 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB8EC0C1DB9835700A35392 /* DetailsViewController.swift */; };
-		CBB8EC0F1DB9842C00A35392 /* NearbyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB8EC0E1DB9842C00A35392 /* NearbyCell.swift */; };
 		CBB8EC111DB98AA200A35392 /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB8EC101DB98AA200A35392 /* FilterCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -36,10 +34,8 @@
 		CB8AB0631DB73B7E000EBF16 /* Business.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
 		CBB8EC021DB97B1000A35392 /* ResultsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsCell.swift; sourceTree = "<group>"; };
 		CBB8EC041DB97C8D00A35392 /* SearchResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
-		CBB8EC061DB97E2200A35392 /* NearbyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyViewController.swift; sourceTree = "<group>"; };
 		CBB8EC091DB9804E00A35392 /* FiltersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersViewController.swift; sourceTree = "<group>"; };
 		CBB8EC0C1DB9835700A35392 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
-		CBB8EC0E1DB9842C00A35392 /* NearbyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyCell.swift; sourceTree = "<group>"; };
 		CBB8EC101DB98AA200A35392 /* FilterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
 		F808958D94259B2E415B757A /* Pods-Yelp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yelp.release.xcconfig"; path = "Pods/Target Support Files/Pods-Yelp/Pods-Yelp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -71,7 +67,6 @@
 				CBB8EC041DB97C8D00A35392 /* SearchResultsViewController.swift */,
 				CBB8EC091DB9804E00A35392 /* FiltersViewController.swift */,
 				CBB8EC0C1DB9835700A35392 /* DetailsViewController.swift */,
-				CBB8EC061DB97E2200A35392 /* NearbyViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -130,7 +125,6 @@
 			isa = PBXGroup;
 			children = (
 				CBB8EC021DB97B1000A35392 /* ResultsCell.swift */,
-				CBB8EC0E1DB9842C00A35392 /* NearbyCell.swift */,
 				CBB8EC101DB98AA200A35392 /* FilterCell.swift */,
 			);
 			name = View;
@@ -268,13 +262,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB02EC541DB7418500EE8D80 /* YelpClient.swift in Sources */,
-				CBB8EC0F1DB9842C00A35392 /* NearbyCell.swift in Sources */,
 				CB8AB0641DB73B7E000EBF16 /* Business.swift in Sources */,
 				CBB8EC0A1DB9804E00A35392 /* FiltersViewController.swift in Sources */,
 				CBB8EC0D1DB9835700A35392 /* DetailsViewController.swift in Sources */,
 				CB51B1F71DB6E843003FC6C0 /* AppDelegate.swift in Sources */,
 				CBB8EC031DB97B1000A35392 /* ResultsCell.swift in Sources */,
-				CBB8EC071DB97E2200A35392 /* NearbyViewController.swift in Sources */,
 				CBB8EC051DB97C8D00A35392 /* SearchResultsViewController.swift in Sources */,
 				CBB8EC111DB98AA200A35392 /* FilterCell.swift in Sources */,
 			);
