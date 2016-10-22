@@ -26,7 +26,7 @@ class ResultsCell: UITableViewCell {
     }
     
     func fillCell() {
-        businessNameLbl.text = businessObj.name
+        businessNameLbl.text = "\(businessObj.businessRowIndex!). " + businessObj.name!
         distanceLabel.text = businessObj.distance
         priceRangeLabel.text = "$$"
         if businessObj.imageURL != nil {
@@ -36,7 +36,7 @@ class ResultsCell: UITableViewCell {
         if businessObj.ratingImageURL != nil {
             ratingImageView.setImageWith(businessObj.ratingImageURL!)
         }
-        noOfReviewsLabel.text = String(describing: businessObj.reviewCount)
+        noOfReviewsLabel.text = "\(businessObj.reviewCount!) Reviews"
         
         addressLabel.text = businessObj.address
         categoriesLabel.text = businessObj.categories
@@ -46,8 +46,14 @@ class ResultsCell: UITableViewCell {
         super.awakeFromNib()
         
         businessImageView.layer.cornerRadius = 8.0
+        businessImageView.clipsToBounds = true
         
-        // Initialization code
+        businessNameLbl.preferredMaxLayoutWidth = businessNameLbl.frame.size.width
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        businessNameLbl.preferredMaxLayoutWidth = businessNameLbl.frame.size.width
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

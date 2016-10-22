@@ -44,8 +44,11 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
         
         tableView.dataSource = self
         tableView.delegate = self
-        //tableView.rowHeight = UITableViewAutomaticDimension
-        //tableView.estimatedRowHeight = 150
+        //start: use autolayout constraints
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 150
+        //end: use autolayout constraints
+        //self.automaticallyAdjustsScrollViewInsets = false
         
         isMapView = false
         
@@ -54,7 +57,7 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
     
     func getOrRefreshBusinesses(){
         
-        Business.searchWithTerm(term: "Restaurants", completion: { (businesses: [Business]?, error: Error?) -> Void in
+        Business.searchWithTerm(term: "Thai", completion: { (businesses: [Business]?, error: Error?) -> Void in
             self.businesses = businesses
             self.tableView.reloadData()
             }
@@ -66,24 +69,8 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
         let cell = tableView.dequeueReusableCell(withIdentifier: resultCellIdentifier, for: indexPath) as! ResultsCell
         
         let busObj = businesses[indexPath.row]
+        busObj.businessRowIndex = indexPath.row + 1
         cell.businessObj = busObj
-       print(indexPath.row)
-//        cell.businessNameLbl.text = busObj.name
-//        cell.distanceLabel.text = busObj.distance
-//        cell.priceRangeLabel.text = "$$"
-//        if busObj.imageURL != nil {
-//            cell.businessImageView.setImageWith(busObj.imageURL!)
-//        }
-//        
-//        if busObj.ratingImageURL != nil {
-//            cell.ratingImageView.setImageWith(busObj.ratingImageURL!)
-//        }
-//        cell.noOfReviewsLabel.text = String(describing: busObj.reviewCount)
-//        
-//        cell.addressLabel.text = busObj.address
-//        cell.categoriesLabel.text = busObj.categories
-//        
-//        
         return cell
     }
     
@@ -96,8 +83,6 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
             return 0
         }
     }
-    
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

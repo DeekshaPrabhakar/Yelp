@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol FilterCellDelegate {
+    
+}
+
 class FilterCell: UITableViewCell {
 
     override func awakeFromNib() {
