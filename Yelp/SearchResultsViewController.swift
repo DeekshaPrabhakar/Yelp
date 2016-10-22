@@ -13,8 +13,6 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
     var searchBar: UISearchBar!
     var businesses: [Business]!
     var isMapView = false
-    let data = ["Restaurants", "Breakfast & Brunch", "Coffee & Tea", "Order Pickup or Delivery",
-                "Reservations", "... More Categories"]
     let resultCellIdentifier = "ResultsCell"
     
     @IBOutlet weak var resultsMapView: UIView!
@@ -46,45 +44,57 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
         
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.rowHeight = UITableViewAutomaticDimension
+        //tableView.rowHeight = UITableViewAutomaticDimension
+        //tableView.estimatedRowHeight = 150
         
         isMapView = false
         
+        getOrRefreshBusinesses()
+    }
+    
+    func getOrRefreshBusinesses(){
         
         Business.searchWithTerm(term: "Restaurants", completion: { (businesses: [Business]?, error: Error?) -> Void in
-            
             self.businesses = businesses
-            if let businesses = businesses {
-                for business in businesses {
-                    print(business.name!)
-                    print(business.address!)
-                }
-            }
-            
+            self.tableView.reloadData()
             }
         )
-        
-        
-        /* Example of Yelp search with more search options specified
-         Business.searchWithTerm("Restaurants", sort: .Distance, categories: ["asianfusion", "burgers"], deals: true) { (businesses: [Business]!, error: NSError!) -> Void in
-         self.businesses = businesses
-         
-         for business in businesses {
-         print(business.name!)
-         print(business.address!)
-         }
-         }
-         */
     }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: resultCellIdentifier, for: indexPath) as! ResultsCell
-        cell.textLabel?.text = data[indexPath.row]
+        
+        let busObj = businesses[indexPath.row]
+        cell.businessObj = busObj
+       print(indexPath.row)
+//        cell.businessNameLbl.text = busObj.name
+//        cell.distanceLabel.text = busObj.distance
+//        cell.priceRangeLabel.text = "$$"
+//        if busObj.imageURL != nil {
+//            cell.businessImageView.setImageWith(busObj.imageURL!)
+//        }
+//        
+//        if busObj.ratingImageURL != nil {
+//            cell.ratingImageView.setImageWith(busObj.ratingImageURL!)
+//        }
+//        cell.noOfReviewsLabel.text = String(describing: busObj.reviewCount)
+//        
+//        cell.addressLabel.text = busObj.address
+//        cell.categoriesLabel.text = busObj.categories
+//        
+//        
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
+        if let businesses = businesses {
+            return businesses.count
+        }
+        else
+        {
+            return 0
+        }
     }
     
     
@@ -96,14 +106,14 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
     
     
     
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    
     
 }
 

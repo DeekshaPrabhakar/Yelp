@@ -19,6 +19,7 @@
 		CBB8EC0A1DB9804E00A35392 /* FiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB8EC091DB9804E00A35392 /* FiltersViewController.swift */; };
 		CBB8EC0D1DB9835700A35392 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB8EC0C1DB9835700A35392 /* DetailsViewController.swift */; };
 		CBB8EC111DB98AA200A35392 /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB8EC101DB98AA200A35392 /* FilterCell.swift */; };
+		CBB8EC131DBAA01E00A35392 /* YelpBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB8EC121DBAA01E00A35392 /* YelpBrain.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		CBB8EC091DB9804E00A35392 /* FiltersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersViewController.swift; sourceTree = "<group>"; };
 		CBB8EC0C1DB9835700A35392 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		CBB8EC101DB98AA200A35392 /* FilterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
+		CBB8EC121DBAA01E00A35392 /* YelpBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YelpBrain.swift; sourceTree = "<group>"; };
 		F808958D94259B2E415B757A /* Pods-Yelp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yelp.release.xcconfig"; path = "Pods/Target Support Files/Pods-Yelp/Pods-Yelp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -109,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				CB8AB0631DB73B7E000EBF16 /* Business.swift */,
+				CBB8EC121DBAA01E00A35392 /* YelpBrain.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB02EC541DB7418500EE8D80 /* YelpClient.swift in Sources */,
+				CBB8EC131DBAA01E00A35392 /* YelpBrain.swift in Sources */,
 				CB8AB0641DB73B7E000EBF16 /* Business.swift in Sources */,
 				CBB8EC0A1DB9804E00A35392 /* FiltersViewController.swift in Sources */,
 				CBB8EC0D1DB9835700A35392 /* DetailsViewController.swift in Sources */,
