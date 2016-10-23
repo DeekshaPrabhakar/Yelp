@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Distance</key>
+	<dict>
+		<key>Rows</key>
+		<array>
+			<dict>
+				<key>isExpandable</key>
+				<true/>
+				<key>isExpanded</key>
+				<false/>
+				<key>isVisible</key>
+				<true/>
+				<key>value</key>
+				<string></string>
+				<key>primaryTitle</key>
+				<string>Best Match</string>
+				<key>secondaryTitle</key>
+				<string>Best Match</string>
+				<key>cellIdentifier</key>
+				<string>idCellNormal</string>
+				<key>additionalRows</key>
+				<integer>4</integer>
+			</dict>
+			<dict>
+				<key>isExpandable</key>
+				<false/>
+				<key>isExpanded</key>
+				<false/>
+				<key>isVisible</key>
+				<false/>
+				<key>value</key>
+				<string></string>
+				<key>primaryTitle</key>
+				<string>2 blocks</string>
+				<key>secondaryTitle</key>
+				<string></string>
+				<key>cellIdentifier</key>
+				<string>idCellValuePicker</string>
+				<key>additionalRows</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>isExpandable</key>
+				<false/>
+				<key>isExpanded</key>
+				<false/>
+				<key>isVisible</key>
+				<false/>
+				<key>value</key>
+				<string></string>
+				<key>primaryTitle</key>
+				<string>6 blocks</string>
+				<key>secondaryTitle</key>
+				<string></string>
+				<key>cellIdentifier</key>
+				<string>idCellValuePicker</string>
+				<key>additionalRows</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>isExpandable</key>
+				<false/>
+				<key>isExpanded</key>
+				<false/>
+				<key>isVisible</key>
+				<false/>
+				<key>value</key>
+				<string></string>
+				<key>primaryTitle</key>
+				<string>1 mile</string>
+				<key>secondaryTitle</key>
+				<string></string>
+				<key>cellIdentifier</key>
+				<string>idCellValuePicker</string>
+				<key>additionalRows</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>isExpandable</key>
+				<false/>
+				<key>isExpanded</key>
+				<false/>
+				<key>isVisible</key>
+				<false/>
+				<key>value</key>
+				<string></string>
+				<key>primaryTitle</key>
+				<string>5 miles</string>
+				<key>secondaryTitle</key>
+				<string></string>
+				<key>cellIdentifier</key>
+				<string>idCellValuePicker</string>
+				<key>additionalRows</key>
+				<integer>0</integer>
+			</dict>
+		</array>
+	</dict>
+</dict>
+</plist>

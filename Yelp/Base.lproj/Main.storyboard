@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,7 +15,7 @@
                         <viewControllerLayoutGuide type="bottom" id="6Dt-LK-1kT"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="6Gq-23-UN8">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -35,7 +34,7 @@
                         <viewControllerLayoutGuide type="bottom" id="F8k-Ri-tHG"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="LVU-hK-dFl">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="101" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tYh-jk-2id">
@@ -44,10 +43,10 @@
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ResultsCell" rowHeight="101" id="Cdn-Qt-QQZ" customClass="ResultsCell" customModule="Yelp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="101"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="101"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Cdn-Qt-QQZ" id="Htc-CY-9wx">
-                                            <frame key="frameInset" width="320" height="100"/>
+                                            <frame key="frameInset" width="375" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pEf-FH-aK7" userLabel="Poster Image View">
@@ -132,7 +131,6 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="tYh-jk-2id" firstAttribute="leading" secondItem="LVU-hK-dFl" secondAttribute="leading" id="3u9-Pb-JkT"/>
                             <constraint firstItem="tYh-jk-2id" firstAttribute="top" secondItem="z7t-zJ-YmR" secondAttribute="bottom" id="9kb-6W-Cd0"/>
@@ -141,7 +139,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="YNX-Vl-bx3">
-                        <barButtonItem key="leftBarButtonItem" title="Filter" style="plain" id="Utf-jQ-34S">
+                        <barButtonItem key="leftBarButtonItem" title="Filter" id="Utf-jQ-34S">
                             <connections>
                                 <segue destination="ctY-xp-VGh" kind="modal" id="NaX-p0-mQ4"/>
                             </connections>
@@ -164,31 +162,22 @@
                         <viewControllerLayoutGuide type="bottom" id="yqv-4T-JGz"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ZUk-lW-ow6">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="97" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="bLl-mV-5wZ">
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="97" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="bLl-mV-5wZ">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FilterCell" rowHeight="97" id="mDv-hu-tRh" customClass="FilterCell" customModule="Yelp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="56" width="320" height="97"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mDv-hu-tRh" id="9iz-C5-Ynu">
-                                            <frame key="frameInset" width="320" height="96"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                    </tableViewCell>
-                                </prototypes>
+                                <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="bLl-mV-5wZ" firstAttribute="top" secondItem="INC-5H-q2a" secondAttribute="bottom" id="Ehy-1R-bKa"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="bLl-mV-5wZ" secondAttribute="trailing" constant="-16" id="OpA-kE-8rE"/>
-                            <constraint firstItem="bLl-mV-5wZ" firstAttribute="leading" secondItem="ZUk-lW-ow6" secondAttribute="leadingMargin" constant="-16" id="Q2X-Tj-UGi"/>
-                            <constraint firstItem="yqv-4T-JGz" firstAttribute="top" secondItem="bLl-mV-5wZ" secondAttribute="bottom" id="au4-NU-ACw"/>
+                            <constraint firstAttribute="trailing" secondItem="bLl-mV-5wZ" secondAttribute="trailing" id="0xi-hL-YTQ"/>
+                            <constraint firstItem="bLl-mV-5wZ" firstAttribute="leading" secondItem="ZUk-lW-ow6" secondAttribute="leading" id="IzF-Xe-8Ev"/>
+                            <constraint firstItem="bLl-mV-5wZ" firstAttribute="top" secondItem="INC-5H-q2a" secondAttribute="bottom" id="jVh-aw-VTo"/>
+                            <constraint firstItem="yqv-4T-JGz" firstAttribute="top" secondItem="bLl-mV-5wZ" secondAttribute="bottom" id="tAE-jV-YZr"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="3aV-z1-zNA">
@@ -256,6 +245,6 @@
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4_0.fullscreen"/>
+        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
     </simulatedMetricsContainer>
 </document>

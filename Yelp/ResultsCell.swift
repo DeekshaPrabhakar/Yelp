@@ -47,7 +47,6 @@ class ResultsCell: UITableViewCell {
         
         businessImageView.layer.cornerRadius = 8.0
         businessImageView.clipsToBounds = true
-        
         businessNameLbl.preferredMaxLayoutWidth = businessNameLbl.frame.size.width
     }
     
