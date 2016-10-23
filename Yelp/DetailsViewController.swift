@@ -9,13 +9,31 @@
 import UIKit
 
 class DetailsViewController: UIViewController {
-
+    var button:
+    UIButton! = nil
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        let image = UIImage(named: "oval")
+        button = UIButton(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
+        button.imageView?.contentMode = UIViewContentMode.scaleAspectFit
+        button.setImage(image, for: UIControlState.normal)
+        button.addTarget(self, action: #selector(buttonPressed), for: UIControlEvents.touchUpInside)
+        view.addSubview(button)
     }
-
+    
+    func buttonPressed() {
+        print("button pressed!!")
+        let doneImage = UIImage(named: "done")
+        let notDoneImage = UIImage(named: "oval")
+        if(button.currentImage == notDoneImage){
+            button.setImage(doneImage, for: UIControlState.normal)
+        }
+        else {
+            button.setImage(notDoneImage, for: UIControlState.normal)
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

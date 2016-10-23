@@ -53,7 +53,7 @@ class FiltersViewController: UIViewController, UITableViewDataSource, UITableVie
         allCategories = brain.getAllCategories()
         allDistances = ["Auto","0.3 miles", "1 mile","5 mile","20 miles"]
         allSortByOptions = ["Best Match","Distance","Rating", "Most Reviewed"]
-        
+        if(currentFilters != nil){
         distanceState.rowSelected = currentFilters.distanceRowIndex
         distanceState.rowSelectedLabel = currentFilters.distance
         
@@ -62,6 +62,7 @@ class FiltersViewController: UIViewController, UITableViewDataSource, UITableVie
         
         isDealOnState = [0: currentFilters.isDealON]
         categorySwitchStates = catSwitchStates
+        }
         
         let dealNib = UINib(nibName: "DealCell", bundle: nil)
         tableView.register(dealNib, forCellReuseIdentifier: dealCellIdentifier)
