@@ -203,6 +203,7 @@ class FiltersViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         if(indexPath.section == 1){
             distanceExpanded = !distanceExpanded
             tableView.reloadSections(IndexSet(indexPath), with: UITableViewRowAnimation.fade)
@@ -216,6 +217,7 @@ class FiltersViewController: UIViewController, UITableViewDataSource, UITableVie
             tableView.reloadSections(IndexSet(indexPath), with: UITableViewRowAnimation.fade)
         }
     }
+
     
     func dealSwitchCell(dealSwitchCell: DealCell, didChangeValue: Bool) {
         let indexPath = tableView.indexPath(for: dealSwitchCell)!

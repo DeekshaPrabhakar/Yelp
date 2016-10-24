@@ -75,8 +75,8 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
         
         Business.searchWithTerm(term: searchText, offset: resultsPageOffset, distance: distance, sort: sort, categories: categories, deals: deals, completion: { (businesses: [Business]?, error: Error?) -> Void in
             if(error != nil) {
-                self.hideLoadingIndicator()
                 self.showNetworkErrorView()
+                self.hideLoadingIndicator()
                 self.loadingMoreView!.stopAnimating()
                 
             }
@@ -164,9 +164,9 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     private func showNetworkErrorView(){
-        UIView.animate(withDuration: 0.4, delay: 0, options: UIViewAnimationOptions.curveEaseIn, animations: {
+        UIView.animate(withDuration: 0.4, delay: 3, options: UIViewAnimationOptions.curveEaseIn, animations: {
             self.networkErrorView.isHidden = false
-            self.networkErrorView.frame.size.height = 44
+            self.networkErrorView.frame.size.height = UIScreen.main.bounds.size.height
             
             }, completion: nil)
     }
@@ -233,6 +233,10 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
         {
             return 0
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     override func didReceiveMemoryWarning() {

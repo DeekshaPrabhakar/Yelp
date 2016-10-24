@@ -94,7 +94,7 @@
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ResultsCell" rowHeight="101" id="Cdn-Qt-QQZ" customClass="ResultsCell" customModule="Yelp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ResultsCell" rowHeight="101" id="Cdn-Qt-QQZ" customClass="ResultsCell" customModule="Yelp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="101"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Cdn-Qt-QQZ" id="Htc-CY-9wx">
@@ -194,7 +194,6 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="HoS-qI-IkQ" firstAttribute="centerX" secondItem="T8p-GB-gTu" secondAttribute="centerX" id="Kb4-ot-Zmb"/>
-                                    <constraint firstAttribute="height" constant="150" id="Kqe-Tr-yRT"/>
                                     <constraint firstItem="HoS-qI-IkQ" firstAttribute="top" secondItem="T8p-GB-gTu" secondAttribute="top" constant="10" id="LB3-mZ-Ro2"/>
                                     <constraint firstItem="vLb-TB-MsT" firstAttribute="centerX" secondItem="T8p-GB-gTu" secondAttribute="centerX" id="UeI-1z-Vxc"/>
                                     <constraint firstItem="vLb-TB-MsT" firstAttribute="top" secondItem="HoS-qI-IkQ" secondAttribute="bottom" constant="5" id="zZh-Xt-PV1"/>
@@ -205,6 +204,7 @@
                             <constraint firstItem="tYh-jk-2id" firstAttribute="leading" secondItem="LVU-hK-dFl" secondAttribute="leading" id="3u9-Pb-JkT"/>
                             <constraint firstAttribute="trailing" secondItem="T8p-GB-gTu" secondAttribute="trailing" id="8HE-XJ-jqN"/>
                             <constraint firstItem="tYh-jk-2id" firstAttribute="top" secondItem="z7t-zJ-YmR" secondAttribute="bottom" id="9kb-6W-Cd0"/>
+                            <constraint firstItem="F8k-Ri-tHG" firstAttribute="top" secondItem="T8p-GB-gTu" secondAttribute="bottom" id="FVs-Hp-F8T"/>
                             <constraint firstItem="F8k-Ri-tHG" firstAttribute="top" secondItem="tYh-jk-2id" secondAttribute="bottom" id="FgQ-1f-Wim"/>
                             <constraint firstAttribute="trailing" secondItem="tYh-jk-2id" secondAttribute="trailing" id="UJL-pa-KE9"/>
                             <constraint firstItem="T8p-GB-gTu" firstAttribute="top" secondItem="z7t-zJ-YmR" secondAttribute="bottom" id="fmd-Qi-mdt"/>
