@@ -29,13 +29,27 @@ class ResultsCell: UITableViewCell {
         businessNameLbl.text = "\(businessObj.businessRowIndex!). " + businessObj.name!
         distanceLabel.text = businessObj.distance
         priceRangeLabel.text = "$$"
-        if businessObj.imageURL != nil {
-            businessImageView.setImageWith(businessObj.imageURL!)
-        }
         
-        if businessObj.ratingImageURL != nil {
-            ratingImageView.setImageWith(businessObj.ratingImageURL!)
+        if businessObj.imageURL != nil {
+            
+            businessImageView.alpha = 0
+            
+            UIView.animate(withDuration: 0.4, delay: 0, options: UIViewAnimationOptions.curveEaseIn, animations: {
+                self.businessImageView.setImageWith(self.businessObj.imageURL!)
+                self.businessImageView.alpha = 1
+                }, completion: nil)
         }
+       
+        if businessObj.ratingImageURL != nil {
+            
+            ratingImageView.alpha = 0
+            
+            UIView.animate(withDuration: 0.4, delay: 0, options: UIViewAnimationOptions.curveEaseIn, animations: {
+                self.ratingImageView.setImageWith(self.businessObj.ratingImageURL!)
+                self.ratingImageView.alpha = 1
+                }, completion: nil)
+        }
+
         noOfReviewsLabel.text = "\(businessObj.reviewCount!) Reviews"
         
         addressLabel.text = businessObj.address

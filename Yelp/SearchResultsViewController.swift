@@ -31,6 +31,7 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
     var resultsPageOffset = 0
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var networkErrorView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +54,7 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
         
         //self.automaticallyAdjustsScrollViewInsets = false
         
+        hideNetworkErrorView()
         setUpLoadingIndicator()
         setupScrollLoadingMoreIndicator()
         
@@ -74,12 +76,12 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
         Business.searchWithTerm(term: searchText, offset: resultsPageOffset, distance: distance, sort: sort, categories: categories, deals: deals, completion: { (businesses: [Business]?, error: Error?) -> Void in
             if(error != nil) {
                 self.hideLoadingIndicator()
-                //self.showNetworkErrorView()
-                // Stop the loading indicator
+                self.showNetworkErrorView()
                 self.loadingMoreView!.stopAnimating()
                 
             }
             else {
+                self.hideNetworkErrorView()
                 if(self.isMoreDataLoading){
                     self.isMoreDataLoading = false
                     for busObj in businesses!{
@@ -161,6 +163,21 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
         loadingStateView!.stopAnimating()
     }
     
+    private func showNetworkErrorView(){
+        UIView.animate(withDuration: 0.4, delay: 0, options: UIViewAnimationOptions.curveEaseIn, animations: {
+            self.networkErrorView.isHidden = false
+            self.networkErrorView.frame.size.height = 44
+            
+            }, completion: nil)
+    }
+    
+    private func hideNetworkErrorView(){
+        UIView.animate(withDuration: 0.4, delay: 0, options: UIViewAnimationOptions.curveEaseOut, animations: {
+            self.networkErrorView.isHidden = true
+            self.networkErrorView.frame.size.height = 0
+            }, completion: nil)
+    }
+    
     func filtersViewController(filtersViewController: FiltersViewController, didUpdateFilters filters: [String : AnyObject]) {
         let categories = filters["categories"] as? [String]
         let isDealON = filters["deal"] as? Bool
@@ -237,7 +254,13 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
             }
         }
         else {
-            //detail view
+            if let detailViewController = segue.destination as? DetailsViewController{
+                if let cell = sender as? UITableViewCell{
+                    let indexPath = tableView.indexPath(for: cell)
+                    let bizObj = businesses![indexPath!.row]
+                    detailViewController.busObj = bizObj
+                }
+            }
         }
         
     }

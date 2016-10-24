@@ -8,37 +8,107 @@
 
 import UIKit
 
-class DetailsViewController: UIViewController {
-    var button:
-    UIButton! = nil
+class DetailsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    @IBOutlet weak var tableView: UITableView!
+    var busObj:Business!
+    let posterDtCellIdentifier = "posterDetailsCell"
+    let ReviewCellIdentifier = "ReviewCell"
+    let photoCkInBkMrkCellIdentifier = "photoCkInBkMrkCell"
+    let mapCellIdentifier = "mapCell"
+    let plainDtCellIdentifier = "plainDtCell"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
         
-        let image = UIImage(named: "oval")
-        button = UIButton(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
-        button.imageView?.contentMode = UIViewContentMode.scaleAspectFit
-        button.setImage(image, for: UIControlState.normal)
-        button.addTarget(self, action: #selector(buttonPressed), for: UIControlEvents.touchUpInside)
-        view.addSubview(button)
+        //start: use autolayout constraints
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 90
+        //end: use autolayout constraints
         
-        let switchButton = UIButton(type: .custom)
-        switchButton.isSelected = true
-        let doneImage = UIImage(named: "done")
-        let notDoneImage = UIImage(named: "oval")
-        switchButton.setImage(notDoneImage, for: .selected)
-        switchButton.setImage(doneImage, for: .normal)
-        view.addSubview(switchButton)
+        let pDtNib = UINib(nibName: "posterDetailsCell", bundle: nil)
+        tableView.register(pDtNib, forCellReuseIdentifier: posterDtCellIdentifier)
+        
+        let reviewCellNib = UINib(nibName: "ReviewCell", bundle: nil)
+        tableView.register(reviewCellNib, forCellReuseIdentifier: ReviewCellIdentifier)
+        
+        let pChkNib = UINib(nibName: "photoCkInBkMrkCell", bundle: nil)
+        tableView.register(pChkNib, forCellReuseIdentifier: photoCkInBkMrkCellIdentifier)
+        
+        let mNib = UINib(nibName: "mapCell", bundle: nil)
+        tableView.register(mNib, forCellReuseIdentifier: mapCellIdentifier)
+        
+        
+        let plDtNib = UINib(nibName: "plainDtCell", bundle: nil)
+        tableView.register(plDtNib, forCellReuseIdentifier: plainDtCellIdentifier)
+        
     }
     
-    func buttonPressed() {
-        print("button pressed!!")
-        let doneImage = UIImage(named: "done")
-        let notDoneImage = UIImage(named: "oval")
-        if(button.currentImage == notDoneImage){
-            button.setImage(doneImage, for: UIControlState.normal)
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if(section == 0)
+        {
+            return 1
         }
-        else {
-            button.setImage(notDoneImage, for: UIControlState.normal)
+        else{
+            return 0
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if(section == 0){
+            return 0.1
+        }
+        return 32.0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if(indexPath.section == 0){
+            if(indexPath.row == 0){
+                let cell = tableView.dequeueReusableCell(withIdentifier: posterDtCellIdentifier, for: indexPath) as! posterDetailsCell
+                cell.businessNameLabel.text = busObj.name
+                cell.distanceLabel.text = busObj.distance
+                
+                if busObj.imageURL != nil {
+                    cell.businessPosterView.setImageWith(busObj.imageURL!)
+                }
+                
+                if busObj.ratingImageURL != nil {
+                    cell.ratingsImageView.setImageWith(busObj.ratingImageURL!)
+                }
+                cell.reviewsLabel.text = "\(busObj.reviewCount!) Reviews"
+                cell.categoriesLabel.text = busObj.categories
+                
+                return cell
+            }
+            else if(indexPath.row == 1){
+                let cell = tableView.dequeueReusableCell(withIdentifier: ReviewCellIdentifier, for: indexPath) as! ReviewCell
+                return cell
+            }
+            else if(indexPath.row == 2){
+                let cell = tableView.dequeueReusableCell(withIdentifier: photoCkInBkMrkCellIdentifier, for: indexPath) as! photoCkInBkMrkCell
+                return cell
+
+            }
+            else if(indexPath.row == 3){
+                let cell = tableView.dequeueReusableCell(withIdentifier: mapCellIdentifier, for: indexPath) as! mapCell
+                return cell
+                
+            }
+            else {
+                let cell = tableView.dequeueReusableCell(withIdentifier: plainDtCellIdentifier, for: indexPath) as! plainDtCell
+                cell.textLabel?.text = busObj.address
+                return cell
+            }
+        }
+        else{
+            let cell = tableView.dequeueReusableCell(withIdentifier: plainDtCellIdentifier, for: indexPath) as! plainDtCell
+            return cell
         }
     }
     
@@ -47,15 +117,15 @@ class DetailsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

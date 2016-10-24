@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="posterDetailsCell" id="KGk-i7-Jjw" customClass="posterDetailsCell" customModule="Yelp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="87"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <frame key="frameInset" width="320" height="86"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="51 Reviews" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SMF-kn-j9c">
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seafood, Japanese, Pop-Up Restaurants" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gjU-te-IBG">
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8 mi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GcU-pg-38M">
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$$$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t0J-9x-g3i">
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fvI-em-DPg">
+                        <constraints>
+                            <constraint firstAttribute="width" constant="107" id="LL0-0p-mDA"/>
+                            <constraint firstAttribute="height" constant="17" id="YMo-FV-LU0"/>
+                        </constraints>
+                    </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ogo-RP-wkF"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Ichido" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lan-NY-l41">
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="SMF-kn-j9c" firstAttribute="baseline" secondItem="fvI-em-DPg" secondAttribute="baseline" id="5Mk-nY-o06"/>
+                    <constraint firstItem="ogo-RP-wkF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="8dB-dt-Bjf"/>
+                    <constraint firstItem="ogo-RP-wkF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Bl2-gP-Q8v"/>
+                    <constraint firstAttribute="trailing" secondItem="GcU-pg-38M" secondAttribute="trailing" constant="8" id="DMq-FD-H7d"/>
+                    <constraint firstItem="gjU-te-IBG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="DPD-4g-XWr"/>
+                    <constraint firstItem="fvI-em-DPg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="EKO-8j-oyB"/>
+                    <constraint firstItem="Lan-NY-l41" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="Gaj-vJ-zbR"/>
+                    <constraint firstAttribute="trailing" secondItem="ogo-RP-wkF" secondAttribute="trailing" id="Hfv-IF-IWy"/>
+                    <constraint firstItem="Lan-NY-l41" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="LbL-Es-JDP"/>
+                    <constraint firstItem="SMF-kn-j9c" firstAttribute="leading" secondItem="fvI-em-DPg" secondAttribute="trailing" constant="5" id="SQ8-Pv-dkk"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="gjU-te-IBG" secondAttribute="bottom" constant="12" id="U07-4v-9rn"/>
+                    <constraint firstAttribute="bottom" secondItem="ogo-RP-wkF" secondAttribute="bottom" id="URn-fV-JSa"/>
+                    <constraint firstAttribute="trailing" secondItem="t0J-9x-g3i" secondAttribute="trailing" constant="8" id="ebI-MM-BKY"/>
+                    <constraint firstItem="t0J-9x-g3i" firstAttribute="top" secondItem="GcU-pg-38M" secondAttribute="bottom" constant="5" id="h3f-KM-ZOY"/>
+                    <constraint firstItem="gjU-te-IBG" firstAttribute="top" secondItem="fvI-em-DPg" secondAttribute="bottom" constant="5" id="i1u-h9-ZpB"/>
+                    <constraint firstItem="fvI-em-DPg" firstAttribute="top" secondItem="Lan-NY-l41" secondAttribute="bottom" constant="5" id="jfX-ia-Ie7"/>
+                    <constraint firstItem="GcU-pg-38M" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="oBR-pP-yY8"/>
+                </constraints>
+                <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="businessNameLabel" destination="Lan-NY-l41" id="AVm-Y8-rIv"/>
+                <outlet property="businessPosterView" destination="ogo-RP-wkF" id="zI7-KG-nka"/>
+                <outlet property="categoriesLabel" destination="gjU-te-IBG" id="ba9-31-svl"/>
+                <outlet property="distanceLabel" destination="GcU-pg-38M" id="pYl-Ee-G4c"/>
+                <outlet property="ratingsImageView" destination="fvI-em-DPg" id="rQP-0G-CuK"/>
+                <outlet property="reviewsLabel" destination="SMF-kn-j9c" id="egJ-kj-Z31"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

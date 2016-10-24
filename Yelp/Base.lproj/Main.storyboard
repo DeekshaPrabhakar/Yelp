@@ -17,9 +17,24 @@
                     <view key="view" contentMode="scaleToFill" id="6Gq-23-UN8">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="BTj-R8-pSk">
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6Dt-LK-1kT" firstAttribute="top" secondItem="BTj-R8-pSk" secondAttribute="bottom" id="4Ei-Ml-0Hi"/>
+                            <constraint firstItem="BTj-R8-pSk" firstAttribute="leading" secondItem="6Gq-23-UN8" secondAttribute="leading" id="BRN-RU-M9L"/>
+                            <constraint firstItem="BTj-R8-pSk" firstAttribute="top" secondItem="Km5-nu-wWT" secondAttribute="bottom" id="GQn-Zw-AWT"/>
+                            <constraint firstAttribute="trailing" secondItem="BTj-R8-pSk" secondAttribute="trailing" id="z39-jL-MUh"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="HI7-rI-5OG"/>
+                    <connections>
+                        <outlet property="tableView" destination="BTj-R8-pSk" id="zZf-bt-6kp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MVl-hy-tEH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -83,7 +98,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="101"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Cdn-Qt-QQZ" id="Htc-CY-9wx">
-                                            <frame key="frameInset" width="375" height="100.5"/>
+                                            <frame key="frameInset" width="375" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pEf-FH-aK7" userLabel="Poster Image View">
@@ -167,12 +182,33 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T8p-GB-gTu">
+                                <subviews>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="NWError" translatesAutoresizingMaskIntoConstraints="NO" id="vLb-TB-MsT"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Network Error" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HoS-qI-IkQ">
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="HoS-qI-IkQ" firstAttribute="centerX" secondItem="T8p-GB-gTu" secondAttribute="centerX" id="Kb4-ot-Zmb"/>
+                                    <constraint firstAttribute="height" constant="150" id="Kqe-Tr-yRT"/>
+                                    <constraint firstItem="HoS-qI-IkQ" firstAttribute="top" secondItem="T8p-GB-gTu" secondAttribute="top" constant="10" id="LB3-mZ-Ro2"/>
+                                    <constraint firstItem="vLb-TB-MsT" firstAttribute="centerX" secondItem="T8p-GB-gTu" secondAttribute="centerX" id="UeI-1z-Vxc"/>
+                                    <constraint firstItem="vLb-TB-MsT" firstAttribute="top" secondItem="HoS-qI-IkQ" secondAttribute="bottom" constant="5" id="zZh-Xt-PV1"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <constraints>
                             <constraint firstItem="tYh-jk-2id" firstAttribute="leading" secondItem="LVU-hK-dFl" secondAttribute="leading" id="3u9-Pb-JkT"/>
+                            <constraint firstAttribute="trailing" secondItem="T8p-GB-gTu" secondAttribute="trailing" id="8HE-XJ-jqN"/>
                             <constraint firstItem="tYh-jk-2id" firstAttribute="top" secondItem="z7t-zJ-YmR" secondAttribute="bottom" id="9kb-6W-Cd0"/>
                             <constraint firstItem="F8k-Ri-tHG" firstAttribute="top" secondItem="tYh-jk-2id" secondAttribute="bottom" id="FgQ-1f-Wim"/>
                             <constraint firstAttribute="trailing" secondItem="tYh-jk-2id" secondAttribute="trailing" id="UJL-pa-KE9"/>
+                            <constraint firstItem="T8p-GB-gTu" firstAttribute="top" secondItem="z7t-zJ-YmR" secondAttribute="bottom" id="fmd-Qi-mdt"/>
+                            <constraint firstItem="T8p-GB-gTu" firstAttribute="leading" secondItem="LVU-hK-dFl" secondAttribute="leading" id="fxd-NI-ycU"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="YNX-Vl-bx3">
@@ -188,12 +224,13 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="networkErrorView" destination="T8p-GB-gTu" id="oZ5-7H-Ze7"/>
                         <outlet property="tableView" destination="tYh-jk-2id" id="HPe-YP-eZM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zMT-8V-WZo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-42" y="-64"/>
+            <point key="canvasLocation" x="-42.5" y="-64.5"/>
         </scene>
         <!--Filters View Controller-->
         <scene sceneID="kBo-Xt-0hr">
@@ -288,7 +325,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SGa-mf-g1G" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="SEm-ug-Wyt">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="SEm-ug-Wyt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -307,6 +344,9 @@
             <point key="canvasLocation" x="454" y="-821"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="NWError" width="161" height="89"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
