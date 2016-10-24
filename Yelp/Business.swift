@@ -15,8 +15,10 @@ class Business: NSObject {
     let categories: String?
     let distance: String?
     let ratingImageURL: URL?
+    let ratingSmallImageURL: URL?
     let reviewCount: NSNumber?
     var businessRowIndex:Int?
+    var locationCoordinates = (lat: 0.0, longitude: 0.0)
     
     init(dictionary: NSDictionary) {
         name = dictionary["name"] as? String
@@ -42,6 +44,12 @@ class Business: NSObject {
                     address += ", "
                 }
                 address += neighborhoods![0] as! String
+            }
+            
+            let locCoordinates = location!["coordinate"] as? NSDictionary
+            if locCoordinates != nil && locCoordinates?.count == 2 {
+                self.locationCoordinates.lat = locCoordinates?.value(forKey: "latitude") as! Double
+                self.locationCoordinates.longitude = locCoordinates?.value(forKey: "longitude") as! Double
             }
         }
         self.address = address
@@ -73,6 +81,13 @@ class Business: NSObject {
             ratingImageURL = nil
         }
         
+        let ratingSmallImageURLString = dictionary["rating_img_url_small"] as? String
+        if ratingSmallImageURLString != nil {
+            ratingSmallImageURL = URL(string: ratingImageURLString!)
+        } else {
+            ratingSmallImageURL = nil
+        }
+        
         reviewCount = dictionary["review_count"] as? NSNumber
     }
     
@@ -89,8 +104,8 @@ class Business: NSObject {
         _ = YelpClient.sharedInstance.searchWithTerm(term, completion: completion)
     }
     
-    class func searchWithTerm(term: String, distance: Double? , sort: YelpSortMode?, categories: [String]?, deals: Bool?, completion: @escaping ([Business]?, Error?) -> Void) -> Void {
-        _ = YelpClient.sharedInstance.searchWithTerm(term, distance:distance, sort: sort, categories: categories, deals: deals, completion: completion)
+    class func searchWithTerm(term: String, offset:Int?, distance: Double? , sort: YelpSortMode?, categories: [String]?, deals: Bool?, completion: @escaping ([Business]?, Error?) -> Void) -> Void {
+        _ = YelpClient.sharedInstance.searchWithTerm(term, pgOffset: offset, distance:distance, sort: sort, categories: categories, deals: deals, completion: completion)
     }
     
 }

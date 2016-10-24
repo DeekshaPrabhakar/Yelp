@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="pinDetails" customModule="Yelp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="240" height="100"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FHZ-9G-OuA">
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Adventure in Food &amp; Wine" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bOf-Mm-7LK">
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$$" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hwW-3R-91S">
+                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XV8-fu-bcS">
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="fAc-lt-O5J"/>
+                                <constraint firstAttribute="height" constant="10" id="jOL-tc-nWn"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21 Reviews" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UA7-HD-Uo0">
+                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3331 24th St, Mission" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8rI-iU-mos">
+                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pizza" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AmI-zG-Ge9">
+                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6.3 mi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H8I-LJ-r0P">
+                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="bOf-Mm-7LK" firstAttribute="leading" secondItem="FHZ-9G-OuA" secondAttribute="leading" constant="8" id="2Bw-t6-ies"/>
+                        <constraint firstItem="AmI-zG-Ge9" firstAttribute="leading" secondItem="FHZ-9G-OuA" secondAttribute="leading" constant="8" id="3Ne-Rr-zF1"/>
+                        <constraint firstItem="bOf-Mm-7LK" firstAttribute="top" secondItem="FHZ-9G-OuA" secondAttribute="top" constant="8" id="965-1U-eA0"/>
+                        <constraint firstAttribute="trailing" secondItem="hwW-3R-91S" secondAttribute="trailing" constant="8" id="Bhz-Hz-6fC"/>
+                        <constraint firstAttribute="trailing" secondItem="H8I-LJ-r0P" secondAttribute="trailing" constant="8" id="Ceb-tP-hng"/>
+                        <constraint firstItem="8rI-iU-mos" firstAttribute="top" secondItem="UA7-HD-Uo0" secondAttribute="bottom" constant="6" id="DCp-TA-fuO"/>
+                        <constraint firstItem="UA7-HD-Uo0" firstAttribute="baseline" secondItem="XV8-fu-bcS" secondAttribute="baseline" id="DDk-M7-OJK"/>
+                        <constraint firstItem="XV8-fu-bcS" firstAttribute="top" secondItem="bOf-Mm-7LK" secondAttribute="bottom" constant="6" id="LNI-R3-upJ"/>
+                        <constraint firstItem="H8I-LJ-r0P" firstAttribute="baseline" secondItem="bOf-Mm-7LK" secondAttribute="baseline" id="VhV-9n-eQ7"/>
+                        <constraint firstItem="hwW-3R-91S" firstAttribute="top" secondItem="H8I-LJ-r0P" secondAttribute="bottom" constant="5" id="bpr-97-I5P"/>
+                        <constraint firstItem="8rI-iU-mos" firstAttribute="leading" secondItem="FHZ-9G-OuA" secondAttribute="leading" constant="8" id="cTu-xQ-82t"/>
+                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="AmI-zG-Ge9" secondAttribute="bottom" constant="12" id="ca4-Cu-iNO"/>
+                        <constraint firstItem="AmI-zG-Ge9" firstAttribute="top" secondItem="8rI-iU-mos" secondAttribute="bottom" constant="6" id="fDI-tu-swa"/>
+                        <constraint firstItem="XV8-fu-bcS" firstAttribute="leading" secondItem="FHZ-9G-OuA" secondAttribute="leading" constant="8" id="lmF-Gv-Lmw"/>
+                        <constraint firstItem="UA7-HD-Uo0" firstAttribute="leading" secondItem="XV8-fu-bcS" secondAttribute="trailing" constant="5" id="u2m-cp-enc"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <accessibility key="accessibilityConfiguration" identifier="pinDetails"/>
+            <constraints>
+                <constraint firstItem="FHZ-9G-OuA" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="8nO-Sb-fre"/>
+                <constraint firstItem="FHZ-9G-OuA" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="PHo-V6-pVB"/>
+                <constraint firstAttribute="trailing" secondItem="FHZ-9G-OuA" secondAttribute="trailing" id="lo5-pc-7tB"/>
+                <constraint firstAttribute="bottom" secondItem="FHZ-9G-OuA" secondAttribute="bottom" id="zry-Zv-CKr"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="addressLabel" destination="8rI-iU-mos" id="24s-sD-ziU"/>
+                <outlet property="businessNameLabel" destination="bOf-Mm-7LK" id="UAv-sx-Xd3"/>
+                <outlet property="categoriesLabel" destination="AmI-zG-Ge9" id="swE-jg-qpl"/>
+                <outlet property="distanceLabel" destination="H8I-LJ-r0P" id="JlS-W8-6jq"/>
+                <outlet property="pinDetailsView" destination="FHZ-9G-OuA" id="hVo-7N-qZD"/>
+                <outlet property="priceRangeLabel" destination="hwW-3R-91S" id="9UJ-gi-zeK"/>
+                <outlet property="ratingImageView" destination="XV8-fu-bcS" id="K3q-Nb-xxo"/>
+                <outlet property="reviewLabel" destination="UA7-HD-Uo0" id="FiU-ge-8yY"/>
+            </connections>
+            <point key="canvasLocation" x="37" y="-154"/>
+        </view>
+    </objects>
+</document>

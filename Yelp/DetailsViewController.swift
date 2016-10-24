@@ -20,6 +20,14 @@ class DetailsViewController: UIViewController {
         button.setImage(image, for: UIControlState.normal)
         button.addTarget(self, action: #selector(buttonPressed), for: UIControlEvents.touchUpInside)
         view.addSubview(button)
+        
+        let switchButton = UIButton(type: .custom)
+        switchButton.isSelected = true
+        let doneImage = UIImage(named: "done")
+        let notDoneImage = UIImage(named: "oval")
+        switchButton.setImage(notDoneImage, for: .selected)
+        switchButton.setImage(doneImage, for: .normal)
+        view.addSubview(switchButton)
     }
     
     func buttonPressed() {

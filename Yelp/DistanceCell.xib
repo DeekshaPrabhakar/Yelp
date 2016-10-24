@@ -22,16 +22,23 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Y4g-7S-Juw">
-                                <color key="onTintColor" red="0.0" green="0.59215686270000001" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </switch>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U31-B0-9Fa">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="7fw-p4-svW"/>
+                                    <constraint firstAttribute="height" constant="24" id="XT6-hc-7zz"/>
+                                </constraints>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" red="0.0" green="0.59215686270000001" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Ja8-D8-e4C" firstAttribute="centerY" secondItem="WYM-2G-0NS" secondAttribute="centerY" id="7Ta-Qa-3k0"/>
-                            <constraint firstItem="Ja8-D8-e4C" firstAttribute="leading" secondItem="WYM-2G-0NS" secondAttribute="leading" constant="8" id="IAD-ZV-wgN"/>
-                            <constraint firstItem="Y4g-7S-Juw" firstAttribute="centerY" secondItem="WYM-2G-0NS" secondAttribute="centerY" id="qgx-G3-mI9"/>
-                            <constraint firstAttribute="trailing" secondItem="Y4g-7S-Juw" secondAttribute="trailing" constant="8" id="viQ-XP-Mbv"/>
+                            <constraint firstAttribute="trailing" secondItem="U31-B0-9Fa" secondAttribute="trailing" constant="8" id="22F-SF-Ydc"/>
+                            <constraint firstItem="Ja8-D8-e4C" firstAttribute="centerY" secondItem="WYM-2G-0NS" secondAttribute="centerY" id="92F-bh-b5b"/>
+                            <constraint firstItem="Ja8-D8-e4C" firstAttribute="leading" secondItem="WYM-2G-0NS" secondAttribute="leading" constant="8" id="Hrk-A8-uE6"/>
+                            <constraint firstItem="U31-B0-9Fa" firstAttribute="centerY" secondItem="WYM-2G-0NS" secondAttribute="centerY" id="XvC-Y6-GSD"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -43,9 +50,9 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="distanceButton" destination="U31-B0-9Fa" id="CLr-8u-4sj"/>
                 <outlet property="distanceLabel" destination="Ja8-D8-e4C" id="ZEH-VL-OCX"/>
                 <outlet property="distanceLabelSwitchView" destination="WYM-2G-0NS" id="IIk-KM-gic"/>
-                <outlet property="distanceSwitch" destination="Y4g-7S-Juw" id="CvF-zk-77T"/>
             </connections>
         </tableViewCell>
     </objects>

@@ -12,7 +12,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <frame key="frameInset" width="320" height="43.5"/>
+                <frame key="frameInset" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ucV-R1-MfR" userLabel="SortBy Label Switch View">
@@ -22,16 +22,23 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="b1S-44-VQn">
-                                <color key="onTintColor" red="0.0" green="0.59215686270000001" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </switch>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iGr-43-j0w">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="37N-IX-M3I"/>
+                                    <constraint firstAttribute="width" constant="24" id="wNt-aE-4bu"/>
+                                </constraints>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" red="0.0" green="0.59215686270000001" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="b1S-44-VQn" secondAttribute="trailing" constant="8" id="0zS-Hj-b7g"/>
-                            <constraint firstItem="nAf-Tw-VL4" firstAttribute="centerY" secondItem="ucV-R1-MfR" secondAttribute="centerY" id="3E9-91-pGs"/>
-                            <constraint firstItem="b1S-44-VQn" firstAttribute="centerY" secondItem="ucV-R1-MfR" secondAttribute="centerY" id="Psz-Yv-yiT"/>
-                            <constraint firstItem="nAf-Tw-VL4" firstAttribute="leading" secondItem="ucV-R1-MfR" secondAttribute="leading" constant="8" id="mUi-m8-6ze"/>
+                            <constraint firstAttribute="trailing" secondItem="iGr-43-j0w" secondAttribute="trailing" constant="8" id="VxY-Ub-au5"/>
+                            <constraint firstItem="nAf-Tw-VL4" firstAttribute="leading" secondItem="ucV-R1-MfR" secondAttribute="leading" constant="8" id="gEJ-ps-Ufi"/>
+                            <constraint firstItem="nAf-Tw-VL4" firstAttribute="centerY" secondItem="ucV-R1-MfR" secondAttribute="centerY" id="hGy-WJ-K2N"/>
+                            <constraint firstItem="iGr-43-j0w" firstAttribute="centerY" secondItem="ucV-R1-MfR" secondAttribute="centerY" id="hUq-Cs-3Mf"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -43,9 +50,9 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="sortByButton" destination="iGr-43-j0w" id="hTU-EE-3qL"/>
                 <outlet property="sortByLabel" destination="nAf-Tw-VL4" id="iFi-Cf-JNt"/>
                 <outlet property="sortByLabelSwitchView" destination="ucV-R1-MfR" id="Rh6-70-HX8"/>
-                <outlet property="sortBySwitch" destination="b1S-44-VQn" id="cSd-O4-mxZ"/>
             </connections>
         </tableViewCell>
     </objects>

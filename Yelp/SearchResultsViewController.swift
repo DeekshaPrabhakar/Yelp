@@ -8,11 +8,10 @@
 
 import UIKit
 
-class SearchResultsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, FiltersViewControllerDelegate {
+class SearchResultsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, FiltersViewControllerDelegate, UIScrollViewDelegate {
     
     var searchBar: UISearchBar!
     var businesses: [Business]!
-    var isMapView = false
     let resultCellIdentifier = "ResultsCell"
     var allDistancesInMeters:[Double]!
     var currentFilters = (
@@ -27,8 +26,10 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
     var loadingStateView:ResultsLoadingIndicatorView?
     var isDataLoading = false
     
-    @IBOutlet weak var resultsMapView: UIView!
-    @IBOutlet weak var resultsListView: UIView!
+    var isMoreDataLoading = false
+    var loadingMoreView:InfiniteScrollActivityView?
+    var resultsPageOffset = 0
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -36,7 +37,6 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
         
         //1 mile = 1609.34 meters
         allDistancesInMeters = [0, 0.3 * 1609.34, 1609.34, 5 * 1609.34 , 20 * 1609.34]
-        isMapView = false
         
         searchBar = UISearchBar()
         searchBar.delegate = self
@@ -54,32 +54,80 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
         //self.automaticallyAdjustsScrollViewInsets = false
         
         setUpLoadingIndicator()
+        setupScrollLoadingMoreIndicator()
         
         getOrRefreshBusinesses(searchText: "", distance: nil, sort: nil, categories: nil, deals: nil)
     }
     
+    var lastSearchParams = (term: "", distance: 0.0, sort: YelpSortMode.bestMatched, cats: [String](), isDealOn: false)
+    
     func getOrRefreshBusinesses(searchText: String, distance: Double?, sort: YelpSortMode?, categories: [String]?, deals: Bool?){
+        lastSearchParams.term = searchText
+        lastSearchParams.distance = distance ?? 0
+        lastSearchParams.sort = sort ?? YelpSortMode.bestMatched
+        lastSearchParams.cats = categories ?? []
+        lastSearchParams.isDealOn = deals ?? false
+        
         showLoadingIndicator()
         
-        Business.searchWithTerm(term: searchText, distance: distance , sort: sort, categories: categories, deals: deals, completion: { (businesses: [Business]?, error: Error?) -> Void in
+        
+        Business.searchWithTerm(term: searchText, offset: resultsPageOffset, distance: distance, sort: sort, categories: categories, deals: deals, completion: { (businesses: [Business]?, error: Error?) -> Void in
             if(error != nil) {
                 self.hideLoadingIndicator()
                 //self.showNetworkErrorView()
+                // Stop the loading indicator
+                self.loadingMoreView!.stopAnimating()
+                
             }
             else {
-                self.businesses = businesses
+                if(self.isMoreDataLoading){
+                    self.isMoreDataLoading = false
+                    for busObj in businesses!{
+                        self.businesses.append(busObj)
+                    }
+                }
+                else{
+                    self.businesses = businesses
+                }
                 self.tableView.reloadData()
                 self.hideLoadingIndicator()
+                self.loadingMoreView!.stopAnimating()
+                
             }
             }
         )
     }
     
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if (!isMoreDataLoading) {
+            if (!isMoreDataLoading) {
+                
+                let scrollViewContentHeight = tableView.contentSize.height
+                let scrollOffsetThreshold = scrollViewContentHeight - tableView.bounds.size.height
+                
+                if(scrollView.contentOffset.y > scrollOffsetThreshold && tableView.isDragging) {
+                    isMoreDataLoading = true
+                    
+                    let frame = CGRect(x:0,y: tableView.contentSize.height, width: tableView.bounds.size.width, height:InfiniteScrollActivityView.defaultHeight)
+                    
+                    loadingMoreView?.frame = frame
+                    loadingMoreView!.startAnimating()
+                    
+                    resultsPageOffset += 20
+                    
+                    getOrRefreshBusinesses(searchText: lastSearchParams.term, distance: lastSearchParams.distance, sort: lastSearchParams.sort, categories: lastSearchParams.cats, deals: lastSearchParams.isDealOn)
+                }
+            }
+        }
+    }
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        resultsPageOffset = 0
         if searchText.isEmpty {
-             getOrRefreshBusinesses(searchText: "", distance: nil, sort: nil, categories: nil, deals: nil)
+            getOrRefreshBusinesses(searchText: "", distance: nil, sort: nil, categories: nil, deals: nil)
         } else {
-             getOrRefreshBusinesses(searchText: searchText, distance: nil, sort: nil, categories: nil, deals: nil)
+            getOrRefreshBusinesses(searchText: searchText, distance: nil, sort: nil, categories: nil, deals: nil)
         }
     }
     
@@ -90,6 +138,17 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
         loadingStateView = ResultsLoadingIndicatorView(frame: frame)
         loadingStateView!.isHidden = true
         tableView.addSubview(loadingStateView!)
+    }
+    
+    func setupScrollLoadingMoreIndicator() {
+        let frame = CGRect(x:0, y:tableView.contentSize.height, width: tableView.bounds.size.width, height: InfiniteScrollActivityView.defaultHeight)
+        loadingMoreView = InfiniteScrollActivityView(frame: frame)
+        loadingMoreView!.isHidden = true
+        tableView.addSubview(loadingMoreView!)
+        
+        var insets = tableView.contentInset;
+        insets.bottom += InfiniteScrollActivityView.defaultHeight;
+        tableView.contentInset = insets
     }
     
     private func showLoadingIndicator(){
@@ -136,13 +195,8 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
             currentCategorySwitchStates = catSwitchStates!
         }
         
+        resultsPageOffset = 0
         getOrRefreshBusinesses(searchText: "", distance: allDistancesInMeters[distanceRow!], sort: sortByMode, categories: categories, deals: isDealON)
-        
-//        Business.searchWithTerm(term: "",distance: allDistancesInMeters[distanceRow!] , sort: sortByMode, categories: categories, deals: isDealON, completion: { (businesses: [Business]?, error: Error?) -> Void in
-//            self.businesses = businesses
-//            self.tableView.reloadData()
-//            }
-//        )
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -172,28 +226,22 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
     // MARK: - Navigation
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if(segue.destination.isModalInPopover){
-        let navController = segue.destination as! UINavigationController
-        let filtersVC = navController.topViewController as! FiltersViewController
-        filtersVC.delegate = self
-        filtersVC.currentFilters = currentFilters
-        filtersVC.catSwitchStates = currentCategorySwitchStates
+        if let navController = segue.destination as? UINavigationController {
+            if let filtersVC = navController.topViewController as? FiltersViewController{
+                filtersVC.delegate = self
+                filtersVC.currentFilters = currentFilters
+                filtersVC.catSwitchStates = currentCategorySwitchStates
+            }
+            else if let mapVC = navController.topViewController as? MapsViewController{
+                mapVC.businesses = businesses
+            }
+        }
+        else {
+            //detail view
         }
         
     }
     
-    @IBAction func toggleMapButton(_ sender: AnyObject) {
-        
-        if(isMapView){
-            navigationItem.rightBarButtonItem?.title = "Map"
-            UIView.transition(from: resultsMapView, to: resultsListView, duration: 1, options: UIViewAnimationOptions.transitionFlipFromRight, completion: nil)
-        }
-        else{
-            navigationItem.rightBarButtonItem?.title = "List"
-            UIView.transition(from: resultsListView, to: resultsMapView, duration: 1, options: UIViewAnimationOptions.transitionFlipFromLeft, completion: nil)
-        }
-        isMapView = !isMapView
-    }
 }
 
 // SearchBar methods

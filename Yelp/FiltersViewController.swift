@@ -29,6 +29,8 @@ class FiltersViewController: UIViewController, UITableViewDataSource, UITableVie
     var isDealOnState = [Int:Bool]()
     var distanceState = (rowSelected:0,rowSelectedLabel: "Auto")
     var sortByState = (rowSelected:0,rowSelectedLabel: "Best Match")
+    let doneImage = UIImage(named: "done")
+    let notDoneImage = UIImage(named: "oval")
     
     var distanceExpanded = false
     var sortByExpanded = false
@@ -39,7 +41,7 @@ class FiltersViewController: UIViewController, UITableViewDataSource, UITableVie
     
     var currentFilters:(sortMode: String, sortRowIndex: Int, isDealON: Bool, distance: String, distanceRowIndex: Int)!
     var catSwitchStates:[Int:Bool]!
-
+    
     weak var delegate:FiltersViewControllerDelegate?
     
     override func viewDidLoad() {
@@ -54,14 +56,14 @@ class FiltersViewController: UIViewController, UITableViewDataSource, UITableVie
         allDistances = ["Auto","0.3 miles", "1 mile","5 mile","20 miles"]
         allSortByOptions = ["Best Match","Distance","Rating", "Most Reviewed"]
         if(currentFilters != nil){
-        distanceState.rowSelected = currentFilters.distanceRowIndex
-        distanceState.rowSelectedLabel = currentFilters.distance
-        
-        sortByState.rowSelectedLabel = currentFilters.sortMode
-        sortByState.rowSelected = currentFilters.sortRowIndex
-        
-        isDealOnState = [0: currentFilters.isDealON]
-        categorySwitchStates = catSwitchStates
+            distanceState.rowSelected = currentFilters.distanceRowIndex
+            distanceState.rowSelectedLabel = currentFilters.distance
+            
+            sortByState.rowSelectedLabel = currentFilters.sortMode
+            sortByState.rowSelected = currentFilters.sortRowIndex
+            
+            isDealOnState = [0: currentFilters.isDealON]
+            categorySwitchStates = catSwitchStates
         }
         
         let dealNib = UINib(nibName: "DealCell", bundle: nil)
@@ -149,7 +151,16 @@ class FiltersViewController: UIViewController, UITableViewDataSource, UITableVie
                 let cell = tableView.dequeueReusableCell(withIdentifier: distanceCellIdentifier, for: indexPath) as! DistanceCell
                 cell.distanceLabel.text = getSection(section: indexPath.section).rows[indexPath.row]
                 cell.distanceDelegate = self
-                cell.distanceSwitch.isOn = (distanceState.rowSelected == indexPath.row)
+                //cell.distanceSwitch.isOn = (distanceState.rowSelected == indexPath.row)
+                if(distanceState.rowSelected == indexPath.row)
+                {
+                    cell.distanceButton.setImage(doneImage, for: UIControlState.normal)
+                    cell.distanceButton.tintColor = UIColor.init(red: CGFloat(0)/255, green: CGFloat(151)/255, blue: (236)/255, alpha: 1)
+                }
+                else{
+                    cell.distanceButton.setImage(notDoneImage, for: UIControlState.normal)
+                    cell.distanceButton.tintColor = UIColor.init(red: CGFloat(102)/255, green: CGFloat(102)/255, blue: (102)/255, alpha: 1)//gray
+                }
                 return cell
             }
             else{
@@ -163,7 +174,17 @@ class FiltersViewController: UIViewController, UITableViewDataSource, UITableVie
                 let cell = tableView.dequeueReusableCell(withIdentifier: sortByCellIdentifier, for: indexPath) as! SortByCell
                 cell.sortByLabel.text = getSection(section: indexPath.section).rows[indexPath.row]
                 cell.sortByDelegate = self
-                cell.sortBySwitch.isOn = (sortByState.rowSelected == indexPath.row)
+                //cell.sortBySwitch.isOn = (sortByState.rowSelected == indexPath.row)
+                if(sortByState.rowSelected == indexPath.row)
+                {
+                    cell.sortByButton.setImage(doneImage, for: UIControlState.normal)
+                    cell.sortByButton.tintColor = UIColor.init(red: CGFloat(0)/255, green: CGFloat(151)/255, blue: (236)/255, alpha: 1)
+                }
+                else{
+                    cell.sortByButton.setImage(notDoneImage, for: UIControlState.normal)
+                    cell.sortByButton.tintColor = UIColor.init(red: CGFloat(102)/255, green: CGFloat(102)/255, blue: (102)/255, alpha: 1)//gray
+                }
+
                 return cell
             }
             else{

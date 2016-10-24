@@ -23,7 +23,44 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MVl-hy-tEH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="453.75" y="-63.364999999999995"/>
+            <point key="canvasLocation" x="454" y="-64"/>
+        </scene>
+        <!--Maps View-->
+        <scene sceneID="bqg-aj-Qe4">
+            <objects>
+                <viewController id="zZn-6j-peU" customClass="MapsViewController" customModule="Yelp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="a0d-aU-0ki"/>
+                        <viewControllerLayoutGuide type="bottom" id="lSL-bE-lB0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="80I-WV-dk9">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="hwZ-02-Jy3"/>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="hwZ-02-Jy3" secondAttribute="trailing" id="1oz-Lu-HmW"/>
+                            <constraint firstItem="hwZ-02-Jy3" firstAttribute="leading" secondItem="80I-WV-dk9" secondAttribute="leading" id="3Fk-8u-0Pe"/>
+                            <constraint firstItem="hwZ-02-Jy3" firstAttribute="top" secondItem="a0d-aU-0ki" secondAttribute="bottom" id="pcX-f6-DEk"/>
+                            <constraint firstItem="lSL-bE-lB0" firstAttribute="top" secondItem="hwZ-02-Jy3" secondAttribute="bottom" id="r2K-VJ-iHU"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Maps View" id="F8F-1Z-C2r">
+                        <barButtonItem key="leftBarButtonItem" title="List" id="TgP-9J-ASK">
+                            <connections>
+                                <action selector="goBackToListView:" destination="zZn-6j-peU" id="wfP-8Q-grQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="businessesMapView" destination="hwZ-02-Jy3" id="yrF-Ch-oYT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X0F-rW-59I" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="954.5" y="-822.5"/>
         </scene>
         <!--Search Results View Controller-->
         <scene sceneID="dGa-YD-2tu">
@@ -46,7 +83,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="101"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Cdn-Qt-QQZ" id="Htc-CY-9wx">
-                                            <frame key="frameInset" width="375" height="100"/>
+                                            <frame key="frameInset" width="375" height="100.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pEf-FH-aK7" userLabel="Poster Image View">
@@ -144,6 +181,11 @@
                                 <segue destination="ctY-xp-VGh" kind="modal" id="NaX-p0-mQ4"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Map" id="IDt-bl-wbw">
+                            <connections>
+                                <segue destination="SGa-mf-g1G" kind="modal" id="sJe-Kf-krh"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="tYh-jk-2id" id="HPe-YP-eZM"/>
@@ -198,7 +240,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ycY-fa-2rO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="582" y="898"/>
+            <point key="canvasLocation" x="454" y="808"/>
         </scene>
         <!--Search-->
         <scene sceneID="lbT-Bx-bII">
@@ -239,7 +281,30 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sde-v1-IaT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-42.1875" y="897.16197183098586"/>
+            <point key="canvasLocation" x="-43" y="808"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="UAK-ja-QNY">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SGa-mf-g1G" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="SEm-ug-Wyt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.82745098039999998" green="0.13725490200000001" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="zZn-6j-peU" kind="relationship" relationship="rootViewController" id="izB-D2-2Do"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aWF-D4-vpp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="454" y="-821"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
