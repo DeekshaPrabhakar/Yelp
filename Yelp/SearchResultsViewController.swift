@@ -133,6 +133,10 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
         }
     }
     
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        self.searchBar.showsCancelButton = false
+    }
+    
     private func setUpLoadingIndicator(){
         var middleY = UIScreen.main.bounds.size.height/2;
         middleY  = middleY - self.navigationController!.navigationBar.frame.height
