@@ -6,7 +6,7 @@ Codepath Assignment 2
 
 Yelp is a Yelp search app using the [Yelp API](http://www.yelp.com/developers/documentation/v2/search_api).
 
-Time spent: 1 hours spent in total
+Time spent: 25+ hours spent in total
 
 ## User Stories
 
@@ -25,23 +25,32 @@ The following **required** functionality is completed:
 
 The following **optional** features are implemented:
 
-- [ ] Search results page
-   - [ ] Infinite scroll for restaurant results.
-   - [ ] Implement map view of restaurant results.
-- [ ] Filter page
+- [x] Search results page
+   - [x] Infinite scroll for restaurant results.
+   - [x] Implement map view of restaurant results.
+- [x] Filter page
    - [ ] Implement a custom switch instead of the default UISwitch.
    - [x] Distance filter should expand as in the real Yelp app
    - [x] Categories should show a subset of the full list with a "See All" row to expand. Category list is [here](http://www.yelp.com/developers/documentation/category_list).
-- [ ] Implement the restaurant detail page.
+- [x] Implement the restaurant detail page.
+  - [x] only first cell implemented with autolayout constraints
 
 The following **additional** features are implemented:
 
-- [ ] List anything else that you can get done to improve the app functionality!
+- [x] UI
+   - [x] App Icon
+   - [x] Launch Image with autolayout constraints
+   - [x] Filter cell with autolayout constraints
+   - [x] All images fade in.
+- [x] Map view has call out feature
+- [x] Distance and Sortby uses custom UIButton instead of UI Switch
+- [x] User sees an error message when there is a network error
+- [x] Filters selection persisted between results and filter views 
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1.
-2.
+1. pull to refresh animation as in real yelp app
+2. Custom UI Switch
 
 ## Video Walkthrough
 
