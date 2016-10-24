@@ -55,9 +55,16 @@ Please list two areas of the assignment you'd like to **discuss further with you
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
-
+<table>
+<tr><th>All required, most optionals</th><th>search,n/w error </th></tr>
+<tr><td>
 <img src='https://github.com/DeekshaPrabhakar/Yelp/blob/master/yelpWalkthrough.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
-
+</td>
+<td>
+<img src='https://github.com/DeekshaPrabhakar/Yelp/blob/master/yelpWalkthrough1.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+</td>
+</tr>
+</table>
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
